@@ -17,6 +17,9 @@
     "drupal",
     "plugin"
   ],
+  "files": [
+    "index.js"
+  ],
   "author": "Thiago de Mello Bueno <thiago@kalamuna.com>",
   "license": "MIT",
   "bugs": {
