@@ -30,3 +30,25 @@ add to metalsmith.json up top…
   
   your variables will now be available as
   ```kstatic.scripts``` and ```kstatic.styles```
+
+## Configuration
+
+### `stylesURL`
+
+Required. The URL to download to assume as the Drupal CSS assets.
+
+Example: `http://example.com/styles.html`
+
+### `scriptsURL`
+
+Required. The URL to download to assume as the Drupal JavaScript assets.
+
+Example: `http://example.com/scripts.html`
+
+### `base`
+
+Optional. The base URL for the above styles and scripts URL. If this is provided, the above urls become relative from `/`. Deault is ''.
+
+### `replaceBase`
+
+Optional. When `true` will remove the `base` from the output script and style tags. This will allow referencing relative assets rather then using the absolute URLs. Default is `false`.
