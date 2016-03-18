@@ -11,7 +11,9 @@ module.exports = function plugin(opts) {
     opts = opts || {};
 
     var stylesURL = opts.stylesURL,
-        scriptsURL = opts.scriptsURL;
+        scriptsURL = opts.scriptsURL,
+        base = opts.base || '',
+        removeBase = opts.removeBase || false;
 
     return function through (files, metalsmith, done) {
 
@@ -34,12 +36,20 @@ module.exports = function plugin(opts) {
 
       var metadata = metalsmith.metadata();
       metadata.kstatic = {};
-      requestResource(stylesURL, function(res){
-          metadata.kstatic.styles = res;
+      requestResource(base + stylesURL, function(res){
+          // Remove the base URL from the styles.
+          if (base !== '' && removeBase) {
+              res = res.replace(new RegExp(base, 'g'), '');
+          }
+          metadata.kstatic.styles = res.replace(base, '');
           asyncDone(done);
       });
-      requestResource(scriptsURL, function(res){
-        metadata.kstatic.scripts = res;
+      requestResource(base + scriptsURL, function(res){
+        // Remove the base URL from the scripts.
+        if (base !== '' && removeBase) {
+            res = res.replace(new RegExp(base, 'g'), '');
+        }
+        metadata.kstatic.scripts = res.replace(base, '');
         asyncDone(done);
       });
 
