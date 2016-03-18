@@ -51,4 +51,4 @@ Optional. The base URL for the above styles and scripts URL. If this is provided
 
 ### `replaceBase`
 
-Optional. When `true` will remove the `base` from the output script and style tags. This will allow referencing relative assets rather then using the absolute URLs. Default is `false`.
+Optional. When `true` will remove the `base` from the output script and style tags. This will allow referencing relative assets rather then using the absolute URLs. If you are development directly on the prototype and want to bring in the Drupal assets from the base location, set this to `false`. Default is `false`.
