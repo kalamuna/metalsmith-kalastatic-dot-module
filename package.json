@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-kalastatic-dot-module",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "description": "Metalsmith plugin to automatically ingest Drupal resources (css/js)",
   "main": "index.js",
   "scripts": {
